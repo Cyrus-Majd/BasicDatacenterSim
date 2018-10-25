@@ -22,10 +22,22 @@ Here's how you can visualize this
                                \                   /
                                 \                 /
     "Data Layer"         Centralized Storage (a SAN, for example)
+                                |                 |
+                                |                 |
+                         Storage App 1       Storage App 2
    
    
    
    
-   Lets imagine this system in action: Client 1 wants to visit a website such as Youtube.com, which holds lots of data. When the client's request is sent through, it is first recieved by Server 1. This server can host the HTML of Youtube.com, but does not host the actual data that is on Youtube's front page. To retrieve this data for the Client, Server 1 automatically consults the Centralized Storage to get some data. Once this data is recieved, it is then re-routed back through Server 1, and finally to Client 1, completing the round trip of our client's initial request and providing them with the services they need. A rather noisy client, however, such as Client 2, may be trying to attack the Centralized Storage by means of a DoS attack or something similar to that. Client 2 would use the same kind of requests as Client 1, but with greater intensity (thousands of requests per second, for example).
+   Lets imagine this system in action: Client 1 wants to visit a website such as Youtube.com, which holds lots of data. When the client's request is sent through, it is first recieved by Server 1. This server can host the HTML of Youtube.com, but does not host the actual data that is on Youtube's front page. To retrieve this data for the Client, Server 1 automatically consults the Centralized Storage to get some data (requests are sent to either Storage App 1 or Storage App 2, programs both being run on the same Centralized Storage Server). Once this data is recieved, it is then re-routed back through Server 1, and finally to Client 1, completing the round trip of our client's initial request and providing them with the services they need. A rather noisy client, however, such as Client 2, may be trying to attack the Centralized Storage by means of a DoS attack or something similar to that. Client 2 would use the same kind of requests as Client 1, but with greater intensity (thousands of requests per second, for example).
    
    In my code, Server 1 and Server 2 do not host any HTML pages, and the Centralized Storage computes a random number instead of retrieving a file. Tinkering my code to apply my setup to the aforementioned scenario, however, is easy to do.
+
+
+**REFERENCE TABLE FOR MY CODE:**
+"AttackedClient.java" is Client 2 (the hacker)
+"AttackedServer.java" is Server 2
+"AttackedStorage.java" is Storage App 2 (assuming Storage App 2 is being used by the hacker)
+"Server.java" is Server 1
+"Storage.java" is Storage App 1
+"UserClient.java" is Client 1
