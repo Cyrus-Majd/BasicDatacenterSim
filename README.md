@@ -5,7 +5,7 @@ A basic framework for a datacenter written with synchronous webapp architecture.
 Here's a quick run-down on what this datacenter looks like: There are two people (clients) trying to connect to a web service, like a website. One guy is a regular user while the other is a really mean hacker. The datacenter is primarily composed of two layers of data -- the "Server Layer", which currently hosts 2 servers, each responding to the requests of one client, and the "Data Layer" which is where a centralized data storage system is kept (this could be something as common as a SAN). Yes, I made these terms up just for the sake of explanation.
 
 
-Here's how you can visualize this:
+Here's how you can visualize this
 
 
                         Client 1                    Client 2 (BAD GUY HACKER)
@@ -15,13 +15,13 @@ Here's how you can visualize this:
                       -=-=-=-=-=-=-+|First layer|+-=-=-=-=-=-=-
                            |                           |
                            |                           |
-  "Server Layer"        Server 1                    Server 2
+    "Server Layer"      Server 1                    Server 2
                             \                         /
                              \                       /
                               \                     /
                                \                   /
                                 \                 /
-   "Data Layer"         Centralized Storage (a SAN, for example)
+    "Data Layer"         Centralized Storage (a SAN, for example)
    
    
    
